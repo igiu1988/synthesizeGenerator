@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-// TODO: CGSize
+
 class ViewController: NSViewController {
 
     @IBOutlet var textView: NSTextView!
@@ -15,7 +15,6 @@ class ViewController: NSViewController {
     @IBOutlet var resultTextView: NSTextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
     }
 
@@ -30,12 +29,13 @@ class ViewController: NSViewController {
         for line in propertys {
             let property = Property(string: line)
             result.append(property.setter)
-            result.append("\n")
+            result.append("\n\n")
             result.append(property.getter)
-            result.append("\n")
+            result.append("\n\n")
         }
-        resultTextView.insertText(result, replacementRange: NSRange(location: 0, length: resultTextView.string!.characters.count))
+        resultTextView.insertText(result, replacementRange: NSRange(location: 0, length: resultTextView.string.count))
     }
+
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
@@ -45,8 +45,8 @@ class ViewController: NSViewController {
 
 extension String {
     func capitalizingFirstLetter() -> String {
-        let first = String(characters.prefix(1)).capitalized
-        let other = String(characters.dropFirst())
+        let first = substring(to: 1).capitalized
+        let other = substring(from: 1)
         return first + other
     }
 
@@ -55,7 +55,14 @@ extension String {
     }
 }
 
-// TODO: 缺少对BOOL，数字类型的支持
+enum PropertyType: String {
+    case float = "CGFloat"
+    case size = "CGSize"
+    case block = "^"
+    case cls = "*"
+}
+
+// TODO: 缺少对BOOL，数字类型的支持 CGSize, CGFloat, block
 class Property {
     var name = ""
     var value = ""
@@ -63,44 +70,22 @@ class Property {
     var method = ""
     var isPointer = false
     var associationPolicy = ""
-    var setter: String {
-        if self.isPointer {
-            var result = "- (void)set\(self.name.capitalizingFirstLetter()):(\(self.type ) *)\(self.name) {\n"
-            result.append("    objc_setAssociatedObject(self, @selector(\(self.name)), \(self.value), \(self.associationPolicy));")
-            result.append("\n}")
-            return result
-        } else {
-            var result = "- (void)set\(self.name.capitalizingFirstLetter()):(\(self.type))\(self.name) {\n"
-            result.append("    objc_setAssociatedObject(self, @selector(\(self.name)), \(self.value), \(self.associationPolicy));")
-            result.append("\n}")
-            return result
-        }
+    var typeName = ""
+    var propertyType: PropertyType!
 
+    var setter: String {
+        var result = "- (void)set\(self.name.capitalizingFirstLetter()):(\(self.typeName))\(self.name) {\n"
+        result.append("    objc_setAssociatedObject(self, @selector(\(self.name)), \(self.value), \(self.associationPolicy));\n")
+        result.append("}")
+        return result
     }
 
     var getter: String {
-        if self.isPointer {
-            var result = "- (\(self.type) *)\(self.name) {\n"
-            result.append("    \(self.type) *_\(self.name) = objc_getAssociatedObject(self, @selector(\(self.name)));\n")
-            result.append("    if (_\(self.name) == nil) {\n")
-            result.append("        return [\(self.type) new];\n")
-            result.append("    } else {\n")
-            result.append("        return _\(self.name);\n")
-            result.append("    }")
-            result.append("\n}")
-            return result
-        } else {
-            var result = "- (\(self.type))\(self.name) {\n"
-            result.append("    NSNumber *_\(self.name) = objc_getAssociatedObject(self, @selector(\(self.name)));\n")
-            result.append("    if (_\(self.name) == nil) {\n")
-            result.append("        return 0;\n")
-            result.append("    } else {\n")
-            result.append("        return [_\(self.name) \(self.method)];\n")
-            result.append("    }")
-            result.append("\n}")
-            return result
-        }
-
+        var result = "- (\(self.typeName))\(self.name) {\n"
+        result.append("    \(self.type) *\(self.name) = objc_getAssociatedObject(self, @selector(\(self.name)));\n")
+        result.append("    return \(self.name);\n")
+        result.append("}")
+        return result
     }
 
     init(string: String) {
@@ -112,11 +97,13 @@ class Property {
 
         if string.contains("*") {
             self.isPointer = true
+            self.typeName = self.type + " *"
             self.name.remove(at: self.name.startIndex)
             self.value = self.name
         } else {
+            self.typeName = self.type + " "
             self.value = "@(\(self.name))"
-            switch self.type {
+            switch self.typeName {
             case "CGFloat":
                 self.method = "doubleValue"
             case "double":
