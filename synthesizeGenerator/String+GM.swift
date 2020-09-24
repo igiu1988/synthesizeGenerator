@@ -1,12 +1,24 @@
 //
 //  String+GM.swift
-//  Gengmei
+//  wangyang
 //
 //  Created by wangyang on 2017/12/21.
-//  Copyright © 2017年 更美互动信息科技有限公司. All rights reserved.
+//  Copyright © 2017年 动词大词典. All rights reserved.
 //
 
 import Foundation
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        let first = substring(to: 1).capitalized
+        let other = substring(from: 1)
+        return first + other
+    }
+
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
 
 // MARK: - 字符串截取
 extension String {

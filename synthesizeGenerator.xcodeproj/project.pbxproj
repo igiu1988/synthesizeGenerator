@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		153581C1251C752200963418 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153581C0251C752200963418 /* Property.swift */; };
 		D3697CB41ED9309D00E7F093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3697CB31ED9309D00E7F093 /* AppDelegate.swift */; };
 		D3697CB61ED9309D00E7F093 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3697CB51ED9309D00E7F093 /* ViewController.swift */; };
 		D3697CB81ED9309D00E7F093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3697CB71ED9309D00E7F093 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		153581C0251C752200963418 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		D3697CB01ED9309D00E7F093 /* synthesizeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = synthesizeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3697CB31ED9309D00E7F093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3697CB51ED9309D00E7F093 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				D38756B720E3BEC800920CA5 /* String+GM.swift */,
 				D3697CB31ED9309D00E7F093 /* AppDelegate.swift */,
 				D3697CB51ED9309D00E7F093 /* ViewController.swift */,
+				153581C0251C752200963418 /* Property.swift */,
 				D3697CB71ED9309D00E7F093 /* Assets.xcassets */,
 				D3697CB91ED9309D00E7F093 /* Main.storyboard */,
 				D3697CBC1ED9309D00E7F093 /* Info.plist */,
@@ -90,9 +93,10 @@
 		D3697CA81ED9309D00E7F093 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = WY;
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 1160;
-				ORGANIZATIONNAME = "北京更美互动信息科技有限公司";
+				ORGANIZATIONNAME = "动词大词典";
 				TargetAttributes = {
 					D3697CAF1ED9309D00E7F093 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -138,6 +142,7 @@
 			files = (
 				D38756B820E3BEC800920CA5 /* String+GM.swift in Sources */,
 				D3697CB61ED9309D00E7F093 /* ViewController.swift in Sources */,
+				153581C1251C752200963418 /* Property.swift in Sources */,
 				D3697CB41ED9309D00E7F093 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
