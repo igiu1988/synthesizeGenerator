@@ -3,7 +3,7 @@
 //  synthesizeGenerator
 //
 //  Created by wy on 2020/9/24.
-//  Copyright © 2020 北京动词大词典. All rights reserved.
+//  Copyright © 2020 动词大词典. All rights reserved.
 //
 
 import Foundation

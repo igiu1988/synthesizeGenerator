@@ -3,7 +3,7 @@
 //  synthesizeGenerator
 //
 //  Created by wangyang on 2017/5/27.
-//  Copyright © 2017年 北京动词大词典. All rights reserved.
+//  Copyright © 2017年 动词大词典. All rights reserved.
 //
 
 import Cocoa
