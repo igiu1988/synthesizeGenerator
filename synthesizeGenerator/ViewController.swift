@@ -15,12 +15,12 @@ class ViewController: NSViewController {
 
     @IBAction func parse(_ sender: Any) {
         if let str = textView.textStorage?.string {
-            let result = analyse(text: str)
+            let result = ViewController.analyse(text: str)
             resultTextView.insertText(result, replacementRange: NSRange(location: 0, length: resultTextView.string.count))
         }
     }
 
-    func analyse(text: String) -> String {
+    static func analyse(text: String) -> String {
         let propertys = text.components(separatedBy: "\n").filter { (line) -> Bool in
             return line.hasPrefix("@property")
         }
