@@ -15,25 +15,9 @@ class ViewController: NSViewController {
 
     @IBAction func parse(_ sender: Any) {
         if let str = textView.textStorage?.string {
-            let result = ViewController.analyse(text: str)
+            let result = Analyser.parse(text: str)
             resultTextView.insertText(result, replacementRange: NSRange(location: 0, length: resultTextView.string.count))
         }
-    }
-
-    static func analyse(text: String) -> String {
-        let propertys = text.components(separatedBy: "\n").filter { (line) -> Bool in
-            return line.hasPrefix("@property")
-        }
-
-        var result = ""
-        for line in propertys {
-            let property = Property(string: line)
-            result.append(property.setter)
-            result.append("\n\n")
-            result.append(property.getter)
-            result.append("\n\n")
-        }
-        return result
     }
 }
 

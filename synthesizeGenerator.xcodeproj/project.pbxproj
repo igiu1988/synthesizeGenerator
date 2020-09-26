@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		153581C1251C752200963418 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153581C0251C752200963418 /* Property.swift */; };
+		153581C1251C752200963418 /* NonWeakObjectProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153581C0251C752200963418 /* NonWeakObjectProperty.swift */; };
+		D31D7515251F8E7D0013B759 /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D7514251F8E7D0013B759 /* PropertyTests.swift */; };
+		D31D751A251F8EB00013B759 /* AnalyserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31D7519251F8EB00013B759 /* AnalyserTests.swift */; };
 		D3697CB41ED9309D00E7F093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3697CB31ED9309D00E7F093 /* AppDelegate.swift */; };
 		D3697CB61ED9309D00E7F093 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3697CB51ED9309D00E7F093 /* ViewController.swift */; };
 		D3697CB81ED9309D00E7F093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3697CB71ED9309D00E7F093 /* Assets.xcassets */; };
@@ -41,7 +43,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		153581C0251C752200963418 /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		153581C0251C752200963418 /* NonWeakObjectProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonWeakObjectProperty.swift; sourceTree = "<group>"; };
+		D31D7514251F8E7D0013B759 /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
+		D31D7519251F8EB00013B759 /* AnalyserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyserTests.swift; sourceTree = "<group>"; };
 		D3697CB01ED9309D00E7F093 /* synthesizeGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = synthesizeGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3697CB31ED9309D00E7F093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3697CB51ED9309D00E7F093 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +113,7 @@
 				D3697CB31ED9309D00E7F093 /* AppDelegate.swift */,
 				D3697CB51ED9309D00E7F093 /* ViewController.swift */,
 				D3FFEE19251CDD8E0094044E /* Analyser.swift */,
-				153581C0251C752200963418 /* Property.swift */,
+				153581C0251C752200963418 /* NonWeakObjectProperty.swift */,
 				D3697CB71ED9309D00E7F093 /* Assets.xcassets */,
 				D3697CB91ED9309D00E7F093 /* Main.storyboard */,
 				D3697CBC1ED9309D00E7F093 /* Info.plist */,
@@ -121,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				D3FFEE25251CDFE10094044E /* synthesizeGeneratorTests.swift */,
+				D31D7514251F8E7D0013B759 /* PropertyTests.swift */,
+				D31D7519251F8EB00013B759 /* AnalyserTests.swift */,
 				D3FFEE27251CDFE10094044E /* Info.plist */,
 			);
 			path = synthesizeGeneratorTests;
@@ -264,7 +270,7 @@
 			files = (
 				D38756B820E3BEC800920CA5 /* String+WY.swift in Sources */,
 				D3697CB61ED9309D00E7F093 /* ViewController.swift in Sources */,
-				153581C1251C752200963418 /* Property.swift in Sources */,
+				153581C1251C752200963418 /* NonWeakObjectProperty.swift in Sources */,
 				D3FFEE1A251CDD8E0094044E /* Analyser.swift in Sources */,
 				D3697CB41ED9309D00E7F093 /* AppDelegate.swift in Sources */,
 			);
@@ -274,6 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D31D7515251F8E7D0013B759 /* PropertyTests.swift in Sources */,
+				D31D751A251F8EB00013B759 /* AnalyserTests.swift in Sources */,
 				D3FFEE26251CDFE10094044E /* synthesizeGeneratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,28 +1,23 @@
 //
-//  main.m
-//  propertyCases
+//  AnalyserTests.swift
+//  synthesizeGeneratorTests
 //
-//  Created by wangyang on 2020/9/24.
+//  Created by wangyang on 2020/9/26.
 //  Copyright © 2020 动词大词典. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <objc/runtime.h>
-int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
-    }
-    return 0;
-}
+import XCTest
+@testable import synthesizeGenerator
 
-@interface WYObject : NSObject
-@property (nonatomic, assign) BOOL isHidden;
+class AnalyserTests: XCTestCase {
+
+    // 只检验输出格式（是否正确分行）
+    func testAnalyserOutputFormat() {
+        let input = """
 @property(nonatomic, strong) NSArray *myArray;
 @property(nonatomic, strong) NSArray *otherArray;
-@end
-
-@implementation WYObject
+"""
+        let result = """
 - (void)setMyArray:(NSArray *)myArray {
     objc_setAssociatedObject(self, @selector(myArray), myArray, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
@@ -40,7 +35,9 @@ int main(int argc, const char * argv[]) {
     NSArray *otherArray = objc_getAssociatedObject(self, @selector(otherArray));
     return otherArray;
 }
+"""
+        XCTAssertEqual(Analyser.parse(text: input), result)
+        
+    }
 
-
-
-@end
+}
